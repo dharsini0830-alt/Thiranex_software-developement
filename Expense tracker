@@ -1,0 +1,7 @@
+echo "# Thiranex_software-developement" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/dharsini0830-alt/Thiranex_software-developement.git
+git push -u origin main
