@@ -26,10 +26,10 @@ int main() {
                 searchExpense();
                 break;
             case 4:
-                printf("👋 Exiting... Goodbye!\n");
+                printf("Exiting... Goodbye!\n");
                 exit(0);
             default:
-                printf("❌ Invalid choice! Try again.\n");
+                printf("Invalid choice! Try again.\n");
         }
     }
     return 0;
@@ -74,18 +74,18 @@ void addExpense() {
     scanf("%f", &e.amount);
 
     saveExpense(e);
-    printf("✅ Expense added successfully!\n");
+    printf(" Expense added successfully!\n");
 }
 
 void viewExpenses() {
     FILE *file = fopen("data/expenses.txt", "r");
     if (!file) {
-        printf("⚠️ No expenses found!\n");
+        printf("No expenses found!\n");
         return;
     }
 
     Expense e;
-    printf("\n📋 Expense Records:\n");
+    printf("\n Expense Records:\n");
     printf("----------------------------------------\n");
     while (fscanf(file, "%s %s %f", e.date, e.category, &e.amount) != EOF) {
         printf("Date: %s | Category: %s | Amount: %.2f\n", e.date, e.category, e.amount);
@@ -100,7 +100,7 @@ void searchExpense() {
 
     FILE *file = fopen("data/expenses.txt", "r");
     if (!file) {
-        printf("⚠️ No expenses found!\n");
+        printf(" No expenses found!\n");
         return;
     }
 
@@ -114,7 +114,7 @@ void searchExpense() {
     }
 
     if (!found)
-        printf("❌ No expenses found for category: %s\n", searchCategory);
+        printf("No expenses found for category: %s\n", searchCategory);
 
     fclose(file);
 }
@@ -124,7 +124,7 @@ void searchExpense() {
 void saveExpense(Expense e) {
     FILE *file = fopen("data/expenses.txt", "a");
     if (!file) {
-        printf("❌ Error opening file!\n");
+        printf("Error opening file!\n");
         return;
     }
     fprintf(file, "%s %s %.2f\n", e.date, e.category, e.amount);
@@ -134,12 +134,12 @@ void saveExpense(Expense e) {
 void loadExpenses() {
     FILE *file = fopen("data/expenses.txt", "r");
     if (!file) {
-        printf("⚠️ No expenses found!\n");
+        printf(" No expenses found!\n");
         return;
     }
 
     Expense e;
-    printf("\n📋 All Expenses:\n");
+    printf("\nAll Expenses:\n");
     while (fscanf(file, "%s %s %f", e.date, e.category, &e.amount) != EOF) {
         printf("Date: %s | Category: %s | Amount: %.2f\n", e.date, e.category, e.amount);
     }
